@@ -1,0 +1,53 @@
+<!-- Local rules -->
+
+<!-- Modify it at your will. -->
+<!-- Copyright (C) 2015, Wazuh Inc. -->
+
+<!-- Example -->
+<group name="local,syslog,sshd,">
+
+  <!--
+  Dec 10 01:02:02 host sshd[1234]: Failed none for root from 1.1.1.1 port 1066 ssh2
+  -->
+  <rule id="100001" level="5">
+    <if_sid>5716</if_sid>
+    <srcip>1.1.1.1</srcip>
+    <description>sshd: authentication failed from IP 1.1.1.1.</description>
+    <group>authentication_failed,pci_dss_10.2.4,pci_dss_10.2.5,</group>
+  </rule>
+
+</group>
+
+<group name="lab,">
+
+  <rule id="100100" level="12">
+    <if_sid>60117,63103</if_sid>
+    <description>Lab: log de segurança do Windows apagado</description>
+    <mitre>
+      <id>T1070.001</id>
+    </mitre>
+  </rule>
+
+  <rule id="100110" level="10">
+    <if_sid>92101</if_sid>
+    <description>Lab: PowerShell abriu conexão de rede para $(win.eventdata.destinationIp):$(win.eventdata.destinationPort)</description>
+    <mitre>
+      <id>T1059.001</id>
+      <id>T1071.001</id>
+    </mitre>
+  </rule>
+
+  <rule id="100120" level="14" timeframe="300">
+    <if_group>win_group_changed</if_group>
+    <field name="win.eventdata.targetSid">^S-1-5-32-544$</field>
+    <field name="win.system.eventID">^4732$</field>
+    <if_matched_group>adduser</if_matched_group>
+    <same_field>win.eventdata.subjectUserName</same_field>
+    <description>Lab: conta criada e colocada no grupo Administrators pelo mesmo usuário em menos de 5 minutos</description>
+    <mitre>
+      <id>T1136.001</id>
+      <id>T1098</id>
+    </mitre>
+  </rule>
+
+</group>

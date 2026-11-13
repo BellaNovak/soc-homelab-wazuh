@@ -1,0 +1,6 @@
+*.tar
+*.bak
+*.log
+senhas.txt
+Thumbs.db
+desktop.ini

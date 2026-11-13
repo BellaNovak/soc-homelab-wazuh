@@ -1,0 +1,7 @@
+<!-- Trecho do ossec.conf do agente na win-alvo -->
+<!-- C:\Program Files (x86)\ossec-agent\ossec.conf -->
+<!-- Faz o agente ler o log do Sysmon (configuração da SwiftOnSecurity) -->
+<localfile>
+  <location>Microsoft-Windows-Sysmon/Operational</location>
+  <log_format>eventchannel</log_format>
+</localfile>

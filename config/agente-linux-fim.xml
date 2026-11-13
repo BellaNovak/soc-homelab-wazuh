@@ -1,0 +1,4 @@
+<!-- Trecho do /var/ossec/etc/ossec.conf do agente no linux-alvo, dentro de <syscheck> -->
+<!-- O /etc é vigiado em tempo real. O /usr/bin e o /usr/sbin seguem na varredura padrão de 12 horas -->
+<directories realtime="yes" check_all="yes">/etc</directories>
+<directories>/usr/bin,/usr/sbin</directories>
