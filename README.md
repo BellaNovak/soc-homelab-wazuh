@@ -1,1 +1,0 @@
-# soc-homelab-wazuh
