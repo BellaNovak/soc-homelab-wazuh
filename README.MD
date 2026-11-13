@@ -77,4 +77,4 @@ Todos os testes foram feitos em máquinas virtuais minhas, em uma rede isolada.
 
 ## Autora
 
-Isabella Novaes, CompTIA Security+ e Network+. [LinkedIn](https://www.linkedin.com/in/isabella-novaes-96385a2b1)
+Isabella Novaes, CompTIA Security+ e Network+. [LinkedIn](https://www.linkedin.com/in/isabellanovaes2003)
